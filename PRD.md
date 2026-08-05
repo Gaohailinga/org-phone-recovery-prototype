@@ -296,3 +296,13 @@ POST /api/org/change-bind-phone
 - 共用 `/css/style.css`。
 - 时序图描述目标系统交互，当前原型以前端校验和页面切换为主。
 - 换绑成功页「继续找回密码」按钮跳转回找回密码页，并自动带入新手机号，完成闭环。
+
+## 原型访问
+已部署至 GitHub Pages，永久公开访问：
+
+| 方案 | 访问链接 |
+|---|---|
+| 方案一（双验证方式选择） | https://gaohailinga.github.io/org-phone-recovery-prototype/ |
+| 方案二（直达结算账户信息验证，推荐） | https://gaohailinga.github.io/org-phone-recovery-prototype/v2.html |
+
+仓库地址：https://github.com/Gaohailinga/org-phone-recovery-prototype
