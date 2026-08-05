@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>找回密码</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== 背景装饰 ==================== -->
+  <div class="bg-scene">
+    <div class="bg-cube cube-1"></div>
+    <div class="bg-cube cube-2"></div>
+    <div class="bg-cube cube-3"></div>
+    <div class="bg-beam"></div>
+    <div class="bg-star star-1"></div>
+    <div class="bg-star star-2"></div>
+    <div class="bg-star star-3"></div>
+    <div class="bg-star star-4"></div>
+    <div class="bg-star star-5"></div>
+    <div class="bg-star star-6"></div>
+    <div class="bg-star star-7"></div>
+    <div class="bg-star star-8"></div>
+  </div>
+
+  <main class="app">
+    <!-- ============================================================
+         页面1：找回密码
+    ============================================================ -->
+    <section class="card page" id="page-forgot">
+      <h1 class="card-title">找回密码</h1>
+
+      <div class="form">
+        <div class="form-item">
+          <input type="text" id="forgot-phone" placeholder="请输入绑定手机号" maxlength="11">
+        </div>
+
+        <div class="form-item form-item-with-aside">
+          <input type="text" id="forgot-imgcode" placeholder="请输入图片验证码" maxlength="4">
+          <div class="captcha-box" id="captcha-box" title="点击刷新验证码">7316</div>
+        </div>
+
+        <div class="form-item form-item-with-aside">
+          <input type="text" id="forgot-smscode" placeholder="请输入绑定手机号验证码" maxlength="6">
+          <button class="text-btn" id="forgot-getcode" type="button">获取验证码</button>
+        </div>
+
+        <div class="form-item">
+          <input type="password" id="forgot-newpwd" placeholder="请输入新密码" maxlength="20">
+        </div>
+      </div>
+
+      <p class="tip">若未绑定手机或无法使用旧手机找回可联系上级修改绑定手机号</p>
+
+      <!-- 我是一级机构：上级修改文字下方 -->
+      <div class="org-entry">
+        <button class="link-btn" id="btn-to-org" type="button">我是一级机构</button>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-default" id="forgot-cancel" type="button">取消</button>
+        <button class="btn btn-primary" id="forgot-submit" type="button">完成</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         页面2：结算账户信息验证
+    ============================================================ -->
+    <section class="card page hidden" id="page-bank-verify">
+      <h1 class="card-title">一级机构手机号找回</h1>
+
+      <div class="steps">
+        <span class="step active">1 身份验证</span>
+        <span class="step-line"></span>
+        <span class="step">2 换绑手机号</span>
+        <span class="step-line"></span>
+        <span class="step">3 完成</span>
+      </div>
+
+      <p class="card-sub">结算账户信息验证</p>
+
+      <div class="form">
+        <div class="form-item">
+          <input type="text" id="bank-orgid" placeholder="请输入机构ID" maxlength="20">
+        </div>
+        <div class="form-item">
+          <input type="text" id="bank-accountname" placeholder="请输入开户名称" maxlength="50">
+        </div>
+        <div class="form-item">
+          <input type="text" id="bank-accountno" placeholder="请输入开户账号" maxlength="30">
+        </div>
+        <div class="form-item">
+          <input type="text" id="bank-bankname" placeholder="请输入开户行" maxlength="50">
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-default" id="bank-back" type="button">上一步</button>
+        <button class="btn btn-primary" id="bank-next" type="button">下一步</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         页面3：换绑手机号
+    ============================================================ -->
+    <section class="card page hidden" id="page-change-phone">
+      <h1 class="card-title">一级机构手机号找回</h1>
+
+      <div class="steps">
+        <span class="step done">1 身份验证</span>
+        <span class="step-line"></span>
+        <span class="step active">2 换绑手机号</span>
+        <span class="step-line"></span>
+        <span class="step">3 完成</span>
+      </div>
+
+      <div class="success-tag">
+        <span class="success-tag-icon">✓</span>
+        验证通过，请设置新的绑定手机号
+      </div>
+
+      <div class="form">
+        <div class="form-item form-item-with-aside">
+          <input type="text" id="new-phone" placeholder="请输入换绑手机号" maxlength="11">
+        </div>
+        <div class="form-item form-item-with-aside">
+          <input type="text" id="new-smscode" placeholder="请输入换绑手机号验证码" maxlength="6">
+          <button class="text-btn" id="new-getcode" type="button">获取验证码</button>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-default" id="change-back" type="button">上一步</button>
+        <button class="btn btn-primary" id="change-confirm" type="button">确认</button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         页面4：换绑成功
+    ============================================================ -->
+    <section class="card page hidden" id="page-success">
+      <div class="success-icon">✓</div>
+      <h1 class="card-title success-title">换绑成功</h1>
+      <p class="card-sub">您的绑定手机号已成功更换</p>
+
+      <div class="btn-group btn-group-single">
+        <button class="btn btn-primary" id="success-done" type="button">继续找回密码</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">天阙©2020 京ICP备19024750号-1</footer>
+
+  <script src="js/app-v2.js"></script>
+</body>
+</html>
