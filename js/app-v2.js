@@ -1,16 +1,16 @@
 /* ============================================================
-   页面跳转工具
+   页面跳转工具（切换 wrapper，标注层自动跟随）
 ============================================================ */
-const PAGES = {
-  forgot: 'page-forgot',
-  bankVerify: 'page-bank-verify',
-  changePhone: 'page-change-phone',
-  success: 'page-success',
+const WRAPPERS = {
+  forgot: 'wrapper-forgot',
+  bankVerify: 'wrapper-bank',
+  changePhone: 'wrapper-change',
+  success: 'wrapper-success',
 };
 
 function showPage(name) {
-  Object.values(PAGES).forEach((id) => {
-    document.getElementById(id).classList.toggle('hidden', id !== PAGES[name]);
+  Object.values(WRAPPERS).forEach((id) => {
+    document.getElementById(id).classList.toggle('hidden', id !== WRAPPERS[name]);
   });
   window.scrollTo(0, 0);
 }
