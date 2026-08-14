@@ -17,7 +17,7 @@ sequenceDiagram
 
     rect rgb(255, 240, 220)
         Note over U,AS: 阶段二：结算账户信息验证
-        U->>FE: 输入机构ID、开户名称、开户账号
+        U->>FE: 输入机构ID、开户名称、开户账号、开户行
         U->>FE: 点击下一步
         FE->>AS: 校验结算账户信息
         AS-->>FE: 返回校验结果
