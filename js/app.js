@@ -168,11 +168,23 @@ document.getElementById('legal-back').addEventListener('click', () => {
   showPage('orgRecover');
 });
 
+document.getElementById('legal-getcode').addEventListener('click', (e) => {
+  const phone = document.getElementById('legal-phone').value.trim();
+  if (!PHONE_RE.test(phone)) {
+    showToast('请先输入正确的法人手机号');
+    return;
+  }
+  showToast('验证码已发送至法人手机号');
+  startCountdown(e.currentTarget);
+});
+
 document.getElementById('legal-next').addEventListener('click', () => {
   const ok = validate([
     { id: 'legal-orgid', label: '请输入机构ID' },
     { id: 'legal-name', label: '请输入法人姓名' },
     { id: 'legal-idcard', label: '请输入正确的法人身份证号', test: (v) => IDCARD_RE.test(v) },
+    { id: 'legal-phone', label: '请输入正确的法人手机号', test: (v) => PHONE_RE.test(v) },
+    { id: 'legal-smscode', label: '请输入正确的短信验证码', test: (v) => CODE_RE.test(v) },
   ]);
   if (ok) {
     showPage('changePhone');

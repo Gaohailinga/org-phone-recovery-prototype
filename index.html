@@ -161,8 +161,8 @@
            card-title: 0~51
            steps: 71~91
            card-sub: 95~124
-           form: 124~290 (3项)
-           btn-group: 314~358 (margin-top 24)
+           form: 124~312 (5项：机构ID/法人姓名/身份证号/法人手机号/短信验证码)
+           btn-group: 336~380 (margin-top 24)
     ============================================================ -->
     <div class="page-wrapper hidden" id="wrapper-legal">
       <section class="card page" id="page-legal-verify">
@@ -188,6 +188,13 @@
           <div class="form-item">
             <input type="text" id="legal-idcard" placeholder="请输入法人身份证号" maxlength="18">
           </div>
+          <div class="form-item">
+            <input type="text" id="legal-phone" placeholder="请输入法人手机号" maxlength="11">
+          </div>
+          <div class="form-item form-item-with-aside">
+            <input type="text" id="legal-smscode" placeholder="请输入手机短信验证码" maxlength="6">
+            <button class="text-btn" id="legal-getcode" type="button">获取验证码</button>
+          </div>
         </div>
 
         <div class="btn-group">
@@ -203,9 +210,10 @@
           通过<strong class="annot-key">法人信息</strong>进行身份验证
         </div>
         <!-- 核心验证标注 -->
-        <div class="annot annot-right" style="top:160px;left:385px;width:175px;">
+        <div class="annot annot-right" style="top:150px;left:385px;width:185px;">
           <span class="annot-label">核心验证</span><br>
-          需与机构档案登记的<br><strong class="annot-key">法人信息完全一致</strong>
+          ① <strong class="annot-key">运营商三要素核验</strong>：<br>法人姓名+身份证号+手机号<br>需与运营商登记完全一致<br>
+          ② 手机短信验证码校验
         </div>
       </div>
     </div>
