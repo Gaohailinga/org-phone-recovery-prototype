@@ -307,10 +307,19 @@ POST /api/org/change-bind-phone
 ## 11. 原型访问
 已部署至 GitHub Pages，永久公开访问：
 
+评审标注版（含产品评审意见与修改建议标注）：
+
 | 方案 | 访问链接 |
 |---|---|
 | 方案一（双验证方式选择） | https://gaohailinga.github.io/org-phone-recovery-prototype/ |
 | 方案二（直达结算账户信息验证，推荐） | https://gaohailinga.github.io/org-phone-recovery-prototype/v2.html |
+
+纯净版（无评审标注，可直接演示）：
+
+| 方案 | 访问链接 |
+|---|---|
+| 方案一（双验证方式选择） | https://gaohailinga.github.io/org-phone-recovery-prototype/index-original.html |
+| 方案二（直达结算账户信息验证，推荐） | https://gaohailinga.github.io/org-phone-recovery-prototype/v2-original.html |
 
 仓库地址：https://github.com/Gaohailinga/org-phone-recovery-prototype
 
@@ -319,3 +328,4 @@ POST /api/org/change-bind-phone
 | 版本 | 日期 | 修改人 | 修改内容 |
 |---|---|---|---|
 | v1.0 | 2026-08-06 | 产品经理 | 初始版本：完成需求背景、目标、双方案设计、接口定义、原型部署与访问链接 |
+| v1.1 | 2026-08-07 | 产品经理 | 拆分评审标注版与纯净版原型并补充访问链接；新增 pm-workflow 技能与部署指南 |
