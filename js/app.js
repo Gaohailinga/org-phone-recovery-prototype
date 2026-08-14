@@ -203,7 +203,6 @@ document.getElementById('bank-next').addEventListener('click', () => {
     { id: 'bank-orgid', label: '请输入机构ID' },
     { id: 'bank-accountname', label: '请输入开户名称' },
     { id: 'bank-accountno', label: '请输入开户账号' },
-    { id: 'bank-bankname', label: '请输入开户行' },
   ]);
   if (ok) {
     showPage('changePhone');
