@@ -89,10 +89,27 @@ function startCountdown(btn, seconds = 60) {
 ============================================================ */
 const CAPTCHAS = ['7316', '2F8K', '9M3Q', '6X4Z', '8P2D', '5T7V'];
 let captchaIndex = 0;
+let legalCaptchaIndex = 0;
 
 function refreshCaptcha() {
   captchaIndex = (captchaIndex + 1) % CAPTCHAS.length;
   document.getElementById('captcha-box').textContent = CAPTCHAS[captchaIndex];
+}
+
+function refreshLegalCaptcha() {
+  legalCaptchaIndex = (legalCaptchaIndex + 1) % CAPTCHAS.length;
+  document.getElementById('legal-captcha').textContent = CAPTCHAS[legalCaptchaIndex];
+}
+
+function checkCaptcha(inputId, captchaId, refreshFn) {
+  const input = document.getElementById(inputId).value.trim().toUpperCase();
+  const captcha = document.getElementById(captchaId).textContent;
+  if (input !== captcha) {
+    refreshFn();
+    showToast('验证码不正确');
+    return false;
+  }
+  return true;
 }
 
 /* ============================================================
@@ -174,9 +191,15 @@ document.getElementById('legal-getcode').addEventListener('click', (e) => {
     showToast('请先输入正确的法人手机号');
     return;
   }
+  // 与 CSP 手机号验证码登录策略一致：先校验图片验证码，通过后再发送短信验证码
+  if (!checkCaptcha('legal-imgcode', 'legal-captcha', refreshLegalCaptcha)) {
+    return;
+  }
   showToast('验证码已发送至法人手机号');
   startCountdown(e.currentTarget);
 });
+
+document.getElementById('legal-captcha').addEventListener('click', refreshLegalCaptcha);
 
 document.getElementById('legal-next').addEventListener('click', () => {
   const ok = validate([
@@ -184,6 +207,7 @@ document.getElementById('legal-next').addEventListener('click', () => {
     { id: 'legal-name', label: '请输入法人姓名' },
     { id: 'legal-idcard', label: '请输入正确的法人身份证号', test: (v) => IDCARD_RE.test(v) },
     { id: 'legal-phone', label: '请输入正确的法人手机号', test: (v) => PHONE_RE.test(v) },
+    { id: 'legal-imgcode', label: '请输入正确的图片验证码', test: (v) => v.toUpperCase() === document.getElementById('legal-captcha').textContent },
     { id: 'legal-smscode', label: '请输入正确的短信验证码', test: (v) => CODE_RE.test(v) },
   ]);
   if (ok) {

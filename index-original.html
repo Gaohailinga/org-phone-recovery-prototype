@@ -76,8 +76,8 @@
           <div class="verify-radio"></div>
           <div class="verify-info">
             <p class="verify-name">法人信息验证</p>
-            <p class="verify-desc">通过机构ID、法人姓名、入驻时使用的法人身份证号码及法人手机号进行身份核验</p>
-            <p class="verify-tip">若入驻时使用的是非法人身份证，请选择结算账户信息验证</p>
+            <p class="verify-desc">机构ID + 法人姓名 + 法人身份证号 + 法人手机号</p>
+            <p class="verify-tip">若入驻时使用非法人身份证，请选结算账户验证</p>
           </div>
         </div>
 
@@ -85,7 +85,7 @@
           <div class="verify-radio"></div>
           <div class="verify-info">
             <p class="verify-name">结算账户信息验证</p>
-            <p class="verify-desc">通过机构ID、开户名称及开户账号进行身份验证</p>
+            <p class="verify-desc">机构ID + 开户名称 + 开户账号</p>
           </div>
         </div>
       </div>
@@ -124,6 +124,10 @@
         </div>
         <div class="form-item">
           <input type="text" id="legal-phone" placeholder="请输入法人手机号" maxlength="11">
+        </div>
+        <div class="form-item form-item-with-aside">
+          <input type="text" id="legal-imgcode" placeholder="请输入图片验证码" maxlength="4">
+          <div class="captcha-box" id="legal-captcha" title="点击刷新验证码">7316</div>
         </div>
         <div class="form-item form-item-with-aside">
           <input type="text" id="legal-smscode" placeholder="请输入手机短信验证码" maxlength="6">

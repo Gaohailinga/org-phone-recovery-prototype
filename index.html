@@ -128,15 +128,15 @@
             <div class="verify-radio"></div>
             <div>
               <div class="verify-name">法人信息验证</div>
-              <div class="verify-desc">通过机构ID、法人姓名、入驻时使用的法人身份证号码及法人手机号进行身份核验</div>
-              <div class="verify-tip">若入驻时使用的是非法人身份证，请选择结算账户信息验证</div>
+              <div class="verify-desc">机构ID + 法人姓名 + 法人身份证号 + 法人手机号</div>
+              <div class="verify-tip">若入驻时使用非法人身份证，请选结算账户验证</div>
             </div>
           </div>
           <div class="verify-card" id="bank-card" data-method="bank">
             <div class="verify-radio"></div>
             <div>
               <div class="verify-name">结算账户信息验证</div>
-              <div class="verify-desc">通过机构ID、开户名称及开户账号进行身份验证</div>
+              <div class="verify-desc">机构ID + 开户名称 + 开户账号</div>
             </div>
           </div>
         </div>
@@ -162,8 +162,8 @@
            card-title: 0~51
            steps: 71~91
            card-sub: 95~124
-           form: 124~312 (5项：机构ID/法人姓名/身份证号/法人手机号/短信验证码)
-           btn-group: 336~380 (margin-top 24)
+           form: 124~356 (6项：机构ID/法人姓名/身份证号/法人手机号/图片验证码/短信验证码)
+           btn-group: 380~424 (margin-top 24)
     ============================================================ -->
     <div class="page-wrapper hidden" id="wrapper-legal">
       <section class="card page" id="page-legal-verify">
@@ -193,6 +193,10 @@
             <input type="text" id="legal-phone" placeholder="请输入法人手机号" maxlength="11">
           </div>
           <div class="form-item form-item-with-aside">
+            <input type="text" id="legal-imgcode" placeholder="请输入图片验证码" maxlength="4">
+            <div class="captcha-box" id="legal-captcha" title="点击刷新验证码">7316</div>
+          </div>
+          <div class="form-item form-item-with-aside">
             <input type="text" id="legal-smscode" placeholder="请输入手机短信验证码" maxlength="6">
             <button class="text-btn" id="legal-getcode" type="button">获取验证码</button>
           </div>
@@ -214,7 +218,7 @@
         <div class="annot annot-right" style="top:150px;left:385px;width:185px;">
           <span class="annot-label">核心验证</span><br>
           ① <strong class="annot-key">运营商三要素核验</strong>：<br>法人姓名+身份证号+手机号<br>需与运营商登记完全一致<br>
-          ② 手机短信验证码校验
+          ② 获取短信验证码前<br><strong class="annot-key">先校验图片验证码</strong><br>（策略同手机号验证码登录）
         </div>
       </div>
     </div>
