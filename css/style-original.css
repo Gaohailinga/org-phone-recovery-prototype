@@ -395,6 +395,13 @@ body {
   line-height: 1.5;
 }
 
+.verify-tip {
+  font-size: 11px;
+  color: #e67e22;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
 /* ---------- 换绑成功 ---------- */
 .success-tag {
   display: flex;
